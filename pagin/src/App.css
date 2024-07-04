@@ -1,0 +1,34 @@
+.App {
+  text-align: center;
+  display: flex;
+  vertical-align: top;
+  justify-content: center;
+  padding: 50px;
+  height: 1080px;
+  position: relative;
+  overflow: hidden;
+}
+.App::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://www.bmw.ua/content/dam/bmw/marketB4R1/bmw_ua/topics/offers-and-services/stock-locator/range_locator_xxl.jpg');
+  background-size: cover;
+  background-position: center;
+  filter: blur(30px);
+  z-index: -1;
+}
+
+
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  
+  z-index: -1;
+}
