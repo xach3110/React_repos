@@ -1,9 +1,10 @@
 import React, { FC, useState, useEffect } from 'react';
 import './App.css';
-import axios from "axios";
+import axios from 'axios';
 import CardCar from './components/CardCar/CardCar';
-
-import search from './components/searchnum/searchnum'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import ButtonComponent from './components/ButtonMap/ButtonMap';
+import SvgMap from './components/SVGMap/SVGMap';
 
 interface Car {
   comments: string[];
@@ -25,38 +26,46 @@ interface Car {
   vin: string;
 }
 
-
 const numer = 'АЕ7777АЕ';
 
-
-function App() {
+const App: FC = () => {
   const url = `https://baza-gai.com.ua/nomer/${numer}`;
-  const key = "dcb856e75162ec68a57c4e5f54f430ca";
+  const key = 'dcb856e75162ec68a57c4e5f54f430ca';
 
   const [car, setCar] = useState<Car | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
+  const [modalIsOpen, setModalIsOpen] = useState<boolean>(false);
 
   useEffect(() => {
-    axios.get(url, {
-      headers: {
-        "Accept": "application/json",
-        "X-Api-Key": key
-      }
-    })
-    .then(response => {
-      setCar(response.data);
-      console.log(response.data);
-      setLoading(false);
-    })
-    .catch(err => {
-      setError("An error occurred while fetching data");
-      setLoading(false);
-    });
+    axios
+      .get(url, {
+        headers: {
+          Accept: 'application/json',
+          'X-Api-Key': key,
+        },
+      })
+      .then((response) => {
+        setCar(response.data);
+        console.log(response.data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        setError('Произошла ошибка при загрузке данных');
+        setLoading(false);
+      });
   }, []);
 
+  const handleButtonClick = () => {
+    setModalIsOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalIsOpen(false);
+  };
+
   if (loading) {
-    return <div>Loading...</div>;
+    return <div>Загрузка...</div>;
   }
 
   if (error) {
@@ -64,28 +73,27 @@ function App() {
   }
 
   if (!car) {
-    return <div>No Cars data available</div>;
+    return <div>Нет данных о машинах</div>;
   }
-  
-
-  
 
   return (
     <div className="App">
-          <div className="background"></div>
-          <search></search>
-            <CardCar
-                num = {numer}
-                vin={car.vin.toString()}
-                img={car.photo_url}
-                wanted={car.is_stolen}
-                brand={car.vendor}
-                model={car.model}
-                modelyear={car.model_year.toString()}
-                region={car.region.name}
-            />
+      <div className="background"></div>
+      <search></search>
+      <CardCar
+        num={numer}
+        vin={car.vin.toString()}
+        img={car.photo_url}
+        wanted={car.is_stolen}
+        brand={car.vendor}
+        model={car.model}
+        modelyear={car.model_year.toString()}
+        region={car.region.name}
+      />
+      <ButtonComponent onClick={handleButtonClick} />
+      <SvgMap isOpen={modalIsOpen} onClose={closeModal} />
     </div>
   );
-}
+};
 
 export default App;

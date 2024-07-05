@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@svg-maps/ukraine": "^1.0.0",
+    "@svgr/webpack": "^8.1.0",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
@@ -17,8 +19,10 @@
     "react": "^18.3.1",
     "react-bootstrap": "^2.10.4",
     "react-dom": "^18.3.1",
+    "react-modal": "^3.16.1",
     "react-pagimagic": "^2.0.0",
     "react-scripts": "5.0.1",
+    "react-svg": "^16.1.34",
     "styled-components": "^6.1.11",
     "typescript": "^4.9.5",
     "web-vitals": "^2.1.4"
