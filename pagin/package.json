@@ -16,6 +16,7 @@
     "mdb-react-ui-kit": "^8.0.0",
     "react": "^18.3.1",
     "react-bootstrap": "^2.10.4",
+    "react-bootstrap-pagination-control": "^1.0.5",
     "react-dom": "^18.3.1",
     "react-pagimagic": "^2.0.0",
     "react-scripts": "5.0.1",
