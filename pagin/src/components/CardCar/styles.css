@@ -2,7 +2,6 @@
     width: 18rem;
     border-radius: 10px;
     overflow: hidden;
-    transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
     width: 300px;
     margin-left: 27px;
     margin-top: -30px;
@@ -10,14 +9,48 @@
     animation: fadeIn 1s ease-in-out forwards;
   }
   
-  #card:hover {
-    transform: scale(1.01);
-    box-shadow: 1px 15px 30px rgba(0, 0, 0, 0.1);
-  }
-  
+
   @keyframes fadeIn {
     to {
       opacity: 1;
     }
+  }
+  .license-plate {
+    color: black;
+    position: absolute;
+    align-items: center;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 4px;
+    font-family: Arial, sans-serif;
+    width: fit-content;
+    z-index: 9999;
+    width: 120px;
+    height: 25px;
+    margin-top: 10px;
+    margin-left: 10px;
+
+  }
+  
+  .flag {
+    display:inline-flex;
+    width: 16px;
+    height: 10px;
+    margin-right: 4px;
+  }
+  
+  .blue {
+    background-color: #0057b7;
+    height: 50%;
+  }
+  
+  .yellow {
+    background-color: #ffd700;
+    height: 50%;
+  }
+  
+  .text {
+    font-weight: bold;
+    font-size: 16px;
   }
   

@@ -45,7 +45,7 @@ interface Car {
 
 
 const SearchComponent: React.FC<ChildComponentProps> = ({ setDataFromSearch, setNomer }) => {
-
+  
   
   
 
@@ -60,7 +60,7 @@ const SearchComponent: React.FC<ChildComponentProps> = ({ setDataFromSearch, set
 
     try{
       let url = `https://baza-gai.com.ua/nomer/${num}`;
-      let key = "dcb856e75162ec68a57c4e5f54f430ca";
+      let key = "9c16e05f3ed9a9d34bda42abd1fd91d5";
       let request = fetch(url, {headers: {"Accept": "application/json", "X-Api-Key": key}}).then(r => r.json());
       let data = await request;
       if (data.error) {

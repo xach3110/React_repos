@@ -69,7 +69,7 @@ const Pca: FC<CarProps> = ({ car, nomer = "" }) => {
             <CardCar
               num={nomer}
               img={page === 1 ? car1image : standartCar}
-              wanted={false}
+              wanted={typeof car === 'object' && (car as { is_stolen: boolean }).is_stolen}              
               brand={item.vendor}
               model={item.model}
               modelyear={item.model_year}

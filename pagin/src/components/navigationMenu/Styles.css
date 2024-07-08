@@ -1,0 +1,28 @@
+.menudiv{
+    margin-top: -40px;
+    gap:30px;
+    text-decoration:none;
+    color: aliceblue;
+    background-color: rgb(23, 117, 73);
+    width: 1000px;
+    height: 50px;
+    z-index: 9999;
+    justify-content: center;
+    display: flex;
+    border-radius: 10px;
+}
+
+.linkstyle{
+    display: flex;
+    text-decoration:none;
+    color: aliceblue;
+    margin-top: 0px;
+    padding-top: 13px;
+    padding-left: 20px;
+    padding-right: 20px;
+    transition: 0.4s;
+}
+
+.linkstyle:hover{
+    background-color: rgba(12, 58, 36, 0.783);
+}

@@ -16,13 +16,18 @@ interface CardCarProps {
    datereg: string,
    color: string,
    fuel: string,
-
-
 }
 
 const CardCar: FC<CardCarProps> = ({ num,img, wanted, brand, model, modelyear, region, datereg, color, fuel}) => (
   <CardCarWrapper>
+    
   <Card border="success" className="mb-4 shadow-sm"  id = "card" >
+  <div className="license-plate">
+        <div className="flag">
+          <img src='https://www.prostil.com.ua/images/products/ukraina.png' className='flag'></img>
+        </div>
+        <span className="text">{num}</span>
+    </div>
     <Card.Img variant="top" src={img} style={{ height: '180px', objectFit: 'cover' }} />
     <Card.Body>
       <Card.Title>{brand}</Card.Title>
