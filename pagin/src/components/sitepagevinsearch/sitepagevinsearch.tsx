@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { sitepagevinsearchWrapper } from './sitepagevinsearch.styled';
+import { SitepagevinsearchWrapper } from './sitepagevinsearch.styled';
 
 interface sitepagevinsearchProps {}
 
