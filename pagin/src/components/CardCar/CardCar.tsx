@@ -1,25 +1,33 @@
 import React, { FC, useState, useEffect } from 'react';
-import axios from "axios";
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { CardCarWrapper } from './CardCar.styled';
 import ListGroup from 'react-bootstrap/ListGroup';
+import './styles.css'
 
 interface CardCarProps {
    num: string,
-   vin: string,
    img: string,
    wanted: boolean,
    brand: string,
    model: string,
    modelyear: string,
    region: string,
-
+   datereg: string,
+   color: string,
+   fuel: string,
 }
 
-const CardCar: FC<CardCarProps> = ({ num,img, vin, wanted, brand, model, modelyear, region}) => (
+const CardCar: FC<CardCarProps> = ({ num,img, wanted, brand, model, modelyear, region, datereg, color, fuel}) => (
   <CardCarWrapper>
-  <Card border="success" className="mb-4 shadow-sm" style={{ width: '18rem', borderRadius: '10px', overflow: 'hidden' }}>
+    
+  <Card border="success" className="mb-4 shadow-sm"  id = "card" >
+  <div className="license-plate">
+        <div className="flag">
+          <img src='https://www.prostil.com.ua/images/products/ukraina.png' className='flag'></img>
+        </div>
+        <span className="text">{num}</span>
+    </div>
     <Card.Img variant="top" src={img} style={{ height: '180px', objectFit: 'cover' }} />
     <Card.Body>
       <Card.Title>{brand}</Card.Title>
@@ -29,8 +37,10 @@ const CardCar: FC<CardCarProps> = ({ num,img, vin, wanted, brand, model, modelye
       <ListGroup.Item className={wanted ? 'bg-danger text-white' : 'bg-success text-white'}>
         {wanted ? 'В розыске' : 'Не в розыске'}
       </ListGroup.Item>
-      <ListGroup.Item>Vin: {vin}</ListGroup.Item>
+      <ListGroup.Item>Дата регистрации: {datereg}</ListGroup.Item>
       <ListGroup.Item>Регион: {region}</ListGroup.Item>
+      <ListGroup.Item>Цвет: {color}</ListGroup.Item>
+      <ListGroup.Item>Тип топлива: {fuel}</ListGroup.Item>
     </ListGroup>
     <Card.Body>
     <Button variant="primary" href={`https://baza-gai.com.ua/nomer/${num}`}>Детальнее</Button>
