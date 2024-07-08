@@ -6,6 +6,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import ButtonComponent from './components/ButtonMap/ButtonMap';
 import SvgMap from './components/SVGMap/SVGMap';
 
+interface Region {
+  id: string;
+  color: string;
+}
+
 interface Car {
   comments: string[];
   digits: string;
@@ -30,12 +35,13 @@ const numer = 'АЕ7777АЕ';
 
 const App: FC = () => {
   const url = `https://baza-gai.com.ua/nomer/${numer}`;
-  const key = 'dcb856e75162ec68a57c4e5f54f430ca';
+  const key = '9c16e05f3ed9a9d34bda42abd1fd91d5';
 
   const [car, setCar] = useState<Car | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
   const [modalIsOpen, setModalIsOpen] = useState<boolean>(false);
+  const [regions, setRegions] = useState<Region[]>([]);
 
   useEffect(() => {
     axios
@@ -47,6 +53,16 @@ const App: FC = () => {
       })
       .then((response) => {
         setCar(response.data);
+        const newRegions: Region[] = [
+          { id: 'dnipropetrovsk-31', color: response.data.region.name === "Днепропетровская область" ? 'blue' : 'gray' },
+          // Добавьте другие регионы здесь
+        ];
+
+        setRegions(newRegions);
+
+        // Выводим содержимое regions в консоль
+        console.log('Regions:', newRegions);
+
         console.log(response.data);
         setLoading(false);
       })
@@ -91,8 +107,11 @@ const App: FC = () => {
         region={car.region.name}
       />
       <ButtonComponent onClick={handleButtonClick} />
-      <SvgMap isOpen={modalIsOpen} onClose={closeModal} />
+      <SvgMap isOpen={modalIsOpen} onClose={closeModal} regions={regions} />
+
+      
     </div>
+
   );
 };
 
