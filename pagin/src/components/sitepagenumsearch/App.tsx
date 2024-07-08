@@ -31,7 +31,7 @@ interface Region {
   color: string;
 }
 
-
+const numer = 'АЕ7777АЕ';
 
 
 
