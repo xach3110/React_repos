@@ -94,7 +94,7 @@ const App: FC = () => {
 
   return (
     <div className="App">
-      <div className="background"></div>
+      {/* <div className="background"></div>
       <search></search>
       <CardCar
         num={numer}
@@ -107,7 +107,7 @@ const App: FC = () => {
         region={car.region.name}
       />
       <ButtonComponent onClick={handleButtonClick} />
-      <SvgMap isOpen={modalIsOpen} onClose={closeModal} regions={regions} />
+      <SvgMap isOpen={modalIsOpen} onClose={closeModal} regions={regions} /> */}
 
       
     </div>
