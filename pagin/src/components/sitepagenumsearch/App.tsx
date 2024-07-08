@@ -3,6 +3,8 @@ import './App.css';
 import Search from '../searchnum/searchnum'
 import PaginaCards from '../pca/pca'
 import CardCar from '../CardCar/CardCar';
+import ButtonComponent from '../ButtonMap/ButtonMap';
+import SvgMap from '../SVGMap/SVGMap';
 
 interface Car {
   comments: string[];
@@ -24,13 +26,29 @@ interface Car {
   vin: string;
 }
 
+interface Region {
+  id: string;
+  color: string;
+}
+
+
+
 
 
 
 function App() {
-
+  const [modalIsOpen, setModalIsOpen] = useState<boolean>(false);
+  const [regions, setRegions] = useState<Region[]>([]);
   const [carData, setCarData] = useState<Car | null | string>(null);
   const [Searchnomer, setNomer] = useState<string>(" ");
+
+  const handleButtonClick = () => {
+    setModalIsOpen(true);
+  };
+  
+  const closeModal = () => {
+    setModalIsOpen(false);
+  };
 
   console.log(carData);
 
@@ -38,7 +56,9 @@ function App() {
     <div className="App">
           <div className="background"></div>
           <Search setDataFromSearch = {setCarData} setNomer = {setNomer} ></Search>
-          <PaginaCards car = {carData} nomer = {Searchnomer}></PaginaCards>        
+          <PaginaCards car = {carData} nomer = {Searchnomer}></PaginaCards>  
+          <ButtonComponent onClick={handleButtonClick} />
+      <SvgMap isOpen={modalIsOpen} onClose={closeModal} regions={regions} />      
     </div>
   );
 }
