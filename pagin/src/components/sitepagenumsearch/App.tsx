@@ -47,7 +47,7 @@ const App: FC = () => {
 
   useEffect(() => {
     if (carData && typeof carData === 'object' && 'region' in carData) {
-      setRegions([{ id: carData.region.name, color: '#FFFFFF' }]);
+      setRegions([{ id: carData.region.slug, color: '#a3a3a3' }]);
     }
   }, [carData]);
 
