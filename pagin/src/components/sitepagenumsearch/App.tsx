@@ -1,10 +1,10 @@
 import React, { FC, useState, useEffect } from 'react';
 import './App.css';
-import Search from '../searchnum/searchnum'
-import PaginaCards from '../pca/pca'
-import CardCar from '../CardCar/CardCar';
+import Search from '../searchnum/searchnum';
+import PaginaCards from '../pca/pca';
 import ButtonComponent from '../ButtonMap/ButtonMap';
 import SvgMap from '../SVGMap/SVGMap';
+import Comparison from '../comparison/comparison'; // Импортируем компонент comparison
 
 interface Car {
   comments: string[];
@@ -31,8 +31,9 @@ interface Region {
   color: string;
 }
 
-function App() {
+const App: FC = () => {
   const [modalIsOpen, setModalIsOpen] = useState<boolean>(false);
+  const [comparisonIsOpen, setComparisonIsOpen] = useState<boolean>(false); // Состояние для модального окна Comparison
   const [regions, setRegions] = useState<Region[]>([]);
   const [carData, setCarData] = useState<Car | null | string>(null);
   const [Searchnomer, setNomer] = useState<string>(" ");
@@ -42,12 +43,23 @@ function App() {
     setModalIsOpen(true);
   };
 
+  const handleComparisonButtonClick = () => {
+    setComparisonIsOpen(true);
+  };
+
   const closeModal = () => {
     setModalIsOpen(false);
   };
 
+  const closeComparisonModal = () => {
+    setComparisonIsOpen(false);
+  };
+
   useEffect(() => {
-    if (carData !== null) {
+    if (carData && typeof carData === 'object' && 'region' in carData) {
+      setRegions([{ id: carData.region.slug, color: '#a3a3a3' }]);
+    }
+     if (carData !== null) {
       setButtonVisible(true);
     } else {
       setButtonVisible(false);
@@ -65,8 +77,15 @@ function App() {
       <div className={`button-container ${buttonVisible ? 'visible' : ''}`}>
         <ButtonComponent onClick={handleButtonClick} />
       </div>
-
       <SvgMap isOpen={modalIsOpen} onClose={closeModal} regions={regions} />
+      <button 
+      onClick={handleComparisonButtonClick} 
+      className="but_comp"
+      >
+      Сравнение Авто
+      </button>
+      <SvgMap isOpen={modalIsOpen} onClose={closeModal} regions={regions} />
+      {comparisonIsOpen && <Comparison onClose={closeComparisonModal} />} {/* Отображаем Comparison, если открыт */}
     </div>
   );
 }
