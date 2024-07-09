@@ -36,7 +36,8 @@ const App: FC = () => {
   const [comparisonIsOpen, setComparisonIsOpen] = useState<boolean>(false); // Состояние для модального окна Comparison
   const [regions, setRegions] = useState<Region[]>([]);
   const [carData, setCarData] = useState<Car | null | string>(null);
-  const [Searchnomer, setNomer] = useState<string>("");
+  const [Searchnomer, setNomer] = useState<string>(" ");
+  const [buttonVisible, setButtonVisible] = useState<boolean>(false);
 
   const handleButtonClick = () => {
     setModalIsOpen(true);
@@ -58,6 +59,11 @@ const App: FC = () => {
     if (carData && typeof carData === 'object' && 'region' in carData) {
       setRegions([{ id: carData.region.slug, color: '#a3a3a3' }]);
     }
+     if (carData !== null) {
+      setButtonVisible(true);
+    } else {
+      setButtonVisible(false);
+    }
   }, [carData]);
 
   console.log(carData);
@@ -65,10 +71,13 @@ const App: FC = () => {
   return (
     <div className="App">
       <div className="background"></div>
-      <Search setDataFromSearch={setCarData} setNomer={setNomer} />
-      <PaginaCards car={carData} nomer={Searchnomer} />
-      <ButtonComponent 
-      onClick={handleButtonClick} /> 
+      <Search setDataFromSearch={setCarData} setNomer={setNomer}></Search>
+      <PaginaCards car={carData} nomer={Searchnomer}></PaginaCards>
+      
+      <div className={`button-container ${buttonVisible ? 'visible' : ''}`}>
+        <ButtonComponent onClick={handleButtonClick} />
+      </div>
+      <SvgMap isOpen={modalIsOpen} onClose={closeModal} regions={regions} />
       <button 
       onClick={handleComparisonButtonClick} 
       className="but_comp"
