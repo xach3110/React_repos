@@ -1,7 +1,8 @@
 import React, { FC, useState, useEffect } from 'react';
 import './App.css';
-import Search from '../searchnum/searchnum';
-import PaginaCards from '../pca/pca';
+import Search from '../searchnum/searchnum'
+import PaginaCards from '../pca/pca'
+import CardCar from '../CardCar/CardCar';
 import ButtonComponent from '../ButtonMap/ButtonMap';
 import SvgMap from '../SVGMap/SVGMap';
 import Comparison from '../comparison/comparison'; // Импортируем компонент comparison
@@ -31,7 +32,7 @@ interface Region {
   color: string;
 }
 
-const App: FC = () => {
+function App() {
   const [modalIsOpen, setModalIsOpen] = useState<boolean>(false);
   const [comparisonIsOpen, setComparisonIsOpen] = useState<boolean>(false); // Состояние для модального окна Comparison
   const [regions, setRegions] = useState<Region[]>([]);
@@ -59,7 +60,7 @@ const App: FC = () => {
     if (carData && typeof carData === 'object' && 'region' in carData) {
       setRegions([{ id: carData.region.slug, color: '#a3a3a3' }]);
     }
-     if (carData !== null) {
+    if (carData !== null) {
       setButtonVisible(true);
     } else {
       setButtonVisible(false);
@@ -76,14 +77,15 @@ const App: FC = () => {
       
       <div className={`button-container ${buttonVisible ? 'visible' : ''}`}>
         <ButtonComponent onClick={handleButtonClick} />
-      </div>
-      <SvgMap isOpen={modalIsOpen} onClose={closeModal} regions={regions} />
-      <button 
+        <button 
       onClick={handleComparisonButtonClick} 
       className="but_comp"
       >
       Сравнение Авто
       </button>
+      </div>
+      <SvgMap isOpen={modalIsOpen} onClose={closeModal} regions={regions} />
+      
       <SvgMap isOpen={modalIsOpen} onClose={closeModal} regions={regions} />
       {comparisonIsOpen && <Comparison onClose={closeComparisonModal} />} {/* Отображаем Comparison, если открыт */}
     </div>
