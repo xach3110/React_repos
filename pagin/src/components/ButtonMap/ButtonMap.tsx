@@ -9,4 +9,5 @@ const ButtonComponent: React.FC<ButtonComponentProps> = ({ onClick }) => {
   return <Button onClick={onClick}>Показать карту</Button>;
 };
 
+
 export default ButtonComponent;
