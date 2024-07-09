@@ -8,7 +8,7 @@
   position: relative; 
   overflow: hidden;
 }
-.App::before {
+/* .App::before {
   content: '';
   position: fixed; 
   top: 0;
@@ -20,4 +20,4 @@
   background-position: center;
   filter: blur(30px); 
   z-index: -1;
-}
+} */

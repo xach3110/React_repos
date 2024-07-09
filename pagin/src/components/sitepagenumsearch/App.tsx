@@ -31,34 +31,42 @@ interface Region {
   color: string;
 }
 
-const numer = 'АЕ7777АЕ';
-
-
-
-
 function App() {
   const [modalIsOpen, setModalIsOpen] = useState<boolean>(false);
   const [regions, setRegions] = useState<Region[]>([]);
   const [carData, setCarData] = useState<Car | null | string>(null);
   const [Searchnomer, setNomer] = useState<string>(" ");
+  const [buttonVisible, setButtonVisible] = useState<boolean>(false);
 
   const handleButtonClick = () => {
     setModalIsOpen(true);
   };
-  
+
   const closeModal = () => {
     setModalIsOpen(false);
   };
+
+  useEffect(() => {
+    if (carData !== null) {
+      setButtonVisible(true);
+    } else {
+      setButtonVisible(false);
+    }
+  }, [carData]);
 
   console.log(carData);
 
   return (
     <div className="App">
-          <div className="background"></div>
-          <Search setDataFromSearch = {setCarData} setNomer = {setNomer} ></Search>
-          <PaginaCards car = {carData} nomer = {Searchnomer}></PaginaCards>  
-          <ButtonComponent onClick={handleButtonClick} />
-      <SvgMap isOpen={modalIsOpen} onClose={closeModal} regions={regions} />      
+      <div className="background"></div>
+      <Search setDataFromSearch={setCarData} setNomer={setNomer}></Search>
+      <PaginaCards car={carData} nomer={Searchnomer}></PaginaCards>
+      
+      <div className={`button-container ${buttonVisible ? 'visible' : ''}`}>
+        <ButtonComponent onClick={handleButtonClick} />
+      </div>
+
+      <SvgMap isOpen={modalIsOpen} onClose={closeModal} regions={regions} />
     </div>
   );
 }
