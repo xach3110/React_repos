@@ -76,13 +76,16 @@ function App() {
       <PaginaCards car={carData} nomer={Searchnomer}></PaginaCards>
       <div className={`button-container ${buttonVisible ? 'visible' : ''}`}>
         <ButtonComponent onClick={handleButtonClick} />
-        <button  onClick={handleComparisonButtonClick} className="but_comp">
-          Сравнение Авто
-        </button>
+        <button 
+      onClick={handleComparisonButtonClick} 
+      className="but_comp"
+      >
+      Сравнение Авто
+      </button>
       </div>
       <SvgMap isOpen={modalIsOpen} onClose={closeModal} regions={regions} />
-      <SvgMap isOpen={modalIsOpen} onClose={closeModal} regions={regions} />
-      {comparisonIsOpen && <Comparison onClose={closeComparisonModal} />} 
+
+      {comparisonIsOpen && <Comparison onClose={closeComparisonModal} />} {/* Отображаем Comparison, если открыт */}
     </div>
   );
 }

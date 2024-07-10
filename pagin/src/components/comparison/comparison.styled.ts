@@ -15,13 +15,14 @@ export const Modal = styled.div`
 `;
 
 export const ModalContent = styled.div`
-  background: white;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  position: relative;
-  margin-top: 20px; /* Сдвигаем содержимое вниз от центра */
-  margin-left: 30px; /* Сдвигаем содержимое вправо от центра */
+  display: flex; /* Используем Flexbox для расположения карточек по горизонтали */
+  justify-content: center; /* Центрируем карточки по горизонтали */
+  align-items: flex-start; /* Выравниваем карточки по верхнему краю */
+  gap: 20px; /* Отступ между карточками */
+  padding: 20px; /* Внутренний отступ контейнера */
+  margin-top: 300px; /* Отступ сверху для контейнера */
+  width: 100%; /* Ширина контейнера на всю ширину экрана */
+  box-sizing: border-box; /* Включаем padding и border в ширину контейнера */
 `;
 
 export const CloseButton = styled.button`
@@ -44,4 +45,17 @@ export const CloseButton = styled.button`
   &:focus {
     outline: none; /* Убираем обводку при фокусе */
   }
+`;
+
+export const ModalContentS = styled.div`
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  position: fixed; /* Используем fixed для фиксированного позиционирования */
+  top: 20px; /* Располагаем в верхней части экрана с отступом в 20px */
+  left: 50%; /* Центрируем по горизонтали */
+  transform: translateX(-50%); /* Корректируем позиционирование по горизонтали */
+  width: 1000px;
+  z-index: 1000; /* Обеспечиваем, что элемент будет поверх остальных */
 `;
