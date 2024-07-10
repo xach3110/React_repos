@@ -5,7 +5,7 @@ import PaginaCards from '../pca/pca'
 import CardCar from '../CardCar/CardCar';
 import ButtonComponent from '../ButtonMap/ButtonMap';
 import SvgMap from '../SVGMap/SVGMap';
-import Comparison from '../comparison/comparison'; // Импортируем компонент comparison
+import Comparison from '../comparison/comparison'; 
 
 interface Car {
   comments: string[];
@@ -34,7 +34,7 @@ interface Region {
 
 function App() {
   const [modalIsOpen, setModalIsOpen] = useState<boolean>(false);
-  const [comparisonIsOpen, setComparisonIsOpen] = useState<boolean>(false); // Состояние для модального окна Comparison
+  const [comparisonIsOpen, setComparisonIsOpen] = useState<boolean>(false); 
   const [regions, setRegions] = useState<Region[]>([]);
   const [carData, setCarData] = useState<Car | null | string>(null);
   const [Searchnomer, setNomer] = useState<string>(" ");
@@ -74,20 +74,15 @@ function App() {
       <div className="background"></div>
       <Search setDataFromSearch={setCarData} setNomer={setNomer}></Search>
       <PaginaCards car={carData} nomer={Searchnomer}></PaginaCards>
-      
       <div className={`button-container ${buttonVisible ? 'visible' : ''}`}>
         <ButtonComponent onClick={handleButtonClick} />
-        <button 
-      onClick={handleComparisonButtonClick} 
-      className="but_comp"
-      >
-      Сравнение Авто
-      </button>
+        <button  onClick={handleComparisonButtonClick} className="but_comp">
+          Сравнение Авто
+        </button>
       </div>
       <SvgMap isOpen={modalIsOpen} onClose={closeModal} regions={regions} />
-      
       <SvgMap isOpen={modalIsOpen} onClose={closeModal} regions={regions} />
-      {comparisonIsOpen && <Comparison onClose={closeComparisonModal} />} {/* Отображаем Comparison, если открыт */}
+      {comparisonIsOpen && <Comparison onClose={closeComparisonModal} />} 
     </div>
   );
 }
