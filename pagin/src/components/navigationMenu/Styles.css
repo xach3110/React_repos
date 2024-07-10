@@ -1,7 +1,7 @@
-.menudiv{
+.menudiv {
     margin-top: -40px;
-    gap:30px;
-    text-decoration:none;
+    gap: 30px;
+    text-decoration: none;
     color: rgb(255, 255, 255);
     background-color: rgba(218, 218, 218, 0.172);
     width: 1000px;
@@ -19,9 +19,9 @@ a.active {
     transition: all 0.5s ease;
 }
 
-.linkstyle{
+.linkstyle {
     display: flex;
-    text-decoration:none;
+    text-decoration: none;
     color: rgb(255, 255, 255);
     font-weight: 600;
     margin-top: 0px;
@@ -31,38 +31,99 @@ a.active {
     transition: 0.4s;
 }
 
-.linkstyle:hover{
+.linkstyle:hover {
     background-color: rgba(124, 124, 124, 0.783);
-    
 }
-.background-image 
-{content: '';
-  position: fixed; 
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url('https://www.bmw.ua/content/dam/bmw/marketB4R1/bmw_ua/topics/offers-and-services/stock-locator/range_locator_xxl.jpg');
-  background-size: cover;
-  background-position: center;
-  filter: blur(30px); 
-  z-index: -1;}
+
+.background-image {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://www.bmw.ua/content/dam/bmw/marketB4R1/bmw_ua/topics/offers-and-services/stock-locator/range_locator_xxl.jpg');
+    background-size: cover;
+    background-position: center;
+    filter: blur(30px);
+    z-index: -1;
+}
 
 .fade-enter {
     opacity: 0;
     transform: translateX(100%);
 }
+
 .fade-enter-active {
     opacity: 1;
     transform: translateX(0);
     transition: opacity 300ms, transform 300ms;
 }
+
 .fade-exit {
     opacity: 1;
     transform: translateX(0);
 }
+
 .fade-exit-active {
     opacity: 0;
     transform: translateX(-100%);
     transition: opacity 300ms, transform 300ms;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 1024px) {
+    .menudiv {
+        width: 90%;
+        gap: 0px;
+        height: 80px;
+    }
+    .linkstyle {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .menudiv {
+        width: 100%;
+        height: auto;
+        flex-wrap: wrap;
+        padding: 10px 0;
+        gap: 10px;
+        border-radius: 0;
+    }
+    .linkstyle {
+        padding: 10px;
+        width: calc(50% - 20px);
+        justify-content: center;
+        text-align: center;
+    }
+    a.active {
+        border-bottom: none;
+        border-left: green 5px solid;
+        padding-bottom: 10px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .menudiv {
+        flex-direction: column;
+        height: auto;
+        padding: 10px 0;
+    }
+    .linkstyle {
+        width: 100%;
+        padding: 10px 0;
+    }
+    a.active {
+        border-left: none;
+        border-bottom: green 5px solid;
+    }
+}
+
+@media screen and (max-height: 600px) {
+    .menudiv {
+        margin-top: 0;
+    }
 }

@@ -47,13 +47,13 @@ function SearchMM() {
   return (
     <div className="App">
       <Search setDataFromSearch={setDataFromSearch} setMakeUrl = {setMark} setModelUrl={setModel}/>
-      {typeof dataFromSearch === 'object' && dataFromSearch !== null ? (
+      {typeof dataFromSearch === 'object' && dataFromSearch !== null  ? (
         <CardCar
           full_title={dataFromSearch.full_title || ""}
-          photo_url={dataFromSearch.catalog_model.photo_url || null}
-          price_avg={dataFromSearch.catalog_model.price_avg.toString() || "Нет данных"}
-          years={dataFromSearch.catalog_model.years|| "Нет данных"}
-          plate_count={dataFromSearch.catalog_model.plate_count.toString()|| "Нет данных"}
+          photo_url={dataFromSearch.catalog_model!=null && dataFromSearch.catalog_model.photo_url != null ? dataFromSearch.catalog_model.photo_url : "null"}
+          price_avg={dataFromSearch.catalog_model!=null && dataFromSearch.catalog_model.price_avg != null ? dataFromSearch.catalog_model.price_avg.toString() : "(нет данных)"}
+          years={dataFromSearch.catalog_model!=null && dataFromSearch.catalog_model.years!= null ? dataFromSearch.catalog_model.years : "(нет данных)"}
+          plate_count={dataFromSearch.catalog_model!=null && dataFromSearch.catalog_model.plate_count!= null ? dataFromSearch.catalog_model.plate_count.toString() : "(нет данных)"}
           make={SearchMark || "Нет данных"}
           model={SearchModel || "Нет данных"}
         />

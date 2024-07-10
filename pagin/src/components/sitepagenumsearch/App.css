@@ -8,6 +8,7 @@
   position: relative; 
   overflow: hidden;
 }
+
 /* .App::before {
   content: '';
   position: fixed; 
@@ -59,9 +60,9 @@
   border-radius: 8px;
   position: fixed;
   bottom: 20px;
-  left: 1100px;
+  left: auto;
   z-index: 1000; 
-  margin-left: 10%;
+  margin-left: 35%;
   align-self: right;
 
   &:hover {

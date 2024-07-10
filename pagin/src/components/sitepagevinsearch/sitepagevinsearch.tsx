@@ -57,8 +57,9 @@ function App() {
     <div className="App">
           <div className="background"></div>
           <Search setDataFromSearch = {setCarData} setVin = {setVin} ></Search>
+          <div className='carContainer'>
           <PaginaCards car = {carData} nomer ={carData !=null && typeof carData === "object" ? carData.digits : " " }></PaginaCards>  
-          
+          </div>
     </div>
   );
 }
