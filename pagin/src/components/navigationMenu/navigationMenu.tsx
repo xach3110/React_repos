@@ -1,7 +1,10 @@
 import React from 'react';
 import { NavLink, Route, Routes, Navigate, useLocation } from 'react-router-dom';
 import SearchNum from '../sitepagenumsearch/App';
+import MakeModel  from '../sitepageMakeModelSearch/MakeModelTsx';
 import SearchVin from '../sitepagevinsearch/sitepagevinsearch';
+
+
 import './Styles.css';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
@@ -20,6 +23,9 @@ function App() {
                 <NavLink to='/searchVin' className='linkstyle'>
                     Поиск по VIN-номеру
                 </NavLink>
+                <NavLink to='/searchMM' className='linkstyle'>
+                    Поиск по марке и модели
+                </NavLink>
             </div>
 
             <TransitionGroup component={null}>
@@ -33,6 +39,9 @@ function App() {
                             <Route path="/" element={<Navigate to="/searchNum" replace />} />
                             <Route path="/searchNum" element={<SearchNum />} />
                             <Route path="/searchVin" element={<SearchVin />} />
+                            <Route path="/searchMM" element={<MakeModel />} />
+
+                            
                         </Routes>
                     </div>
                 </CSSTransition>

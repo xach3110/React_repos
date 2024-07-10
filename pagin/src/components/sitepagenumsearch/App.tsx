@@ -1,10 +1,11 @@
 import React, { FC, useState, useEffect } from 'react';
 import './App.css';
-import Search from '../searchnum/searchnum';
-import PaginaCards from '../pca/pca';
+import Search from '../searchnum/searchnum'
+import PaginaCards from '../pca/pca'
+import CardCar from '../CardCar/CardCar';
 import ButtonComponent from '../ButtonMap/ButtonMap';
 import SvgMap from '../SVGMap/SVGMap';
-import Comparison from '../comparison/comparison'; // Импортируем компонент comparison
+import Comparison from '../comparison/comparison'; 
 
 interface Car {
   comments: string[];
@@ -31,9 +32,9 @@ interface Region {
   color: string;
 }
 
-const App: FC = () => {
+function App() {
   const [modalIsOpen, setModalIsOpen] = useState<boolean>(false);
-  const [comparisonIsOpen, setComparisonIsOpen] = useState<boolean>(false); // Состояние для модального окна Comparison
+  const [comparisonIsOpen, setComparisonIsOpen] = useState<boolean>(false); 
   const [regions, setRegions] = useState<Region[]>([]);
   const [carData, setCarData] = useState<Car | null | string>(null);
   const [Searchnomer, setNomer] = useState<string>(" ");
@@ -59,7 +60,7 @@ const App: FC = () => {
     if (carData && typeof carData === 'object' && 'region' in carData) {
       setRegions([{ id: carData.region.slug, color: '#a3a3a3' }]);
     }
-     if (carData !== null) {
+    if (carData !== null) {
       setButtonVisible(true);
     } else {
       setButtonVisible(false);
@@ -73,7 +74,6 @@ const App: FC = () => {
       <div className="background"></div>
       <Search setDataFromSearch={setCarData} setNomer={setNomer}></Search>
       <PaginaCards car={carData} nomer={Searchnomer}></PaginaCards>
-      
       <div className={`button-container ${buttonVisible ? 'visible' : ''}`}>
         <ButtonComponent onClick={handleButtonClick} />
         <button 
