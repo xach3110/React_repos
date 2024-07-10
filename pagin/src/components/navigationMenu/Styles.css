@@ -111,6 +111,7 @@ a.active {
         flex-direction: column;
         height: auto;
         padding: 10px 0;
+        border-radius: 20px;
     }
     .linkstyle {
         width: 100%;
@@ -125,5 +126,8 @@ a.active {
 @media screen and (max-height: 600px) {
     .menudiv {
         margin-top: 0;
+        border-radius: 20px;
+
+        
     }
 }

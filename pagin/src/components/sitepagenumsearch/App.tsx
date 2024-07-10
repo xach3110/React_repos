@@ -77,9 +77,9 @@ function App() {
       <div className={`button-container ${buttonVisible ? 'visible' : ''}`}>
         <ButtonComponent onClick={handleButtonClick} />
         <button 
-      onClick={handleComparisonButtonClick} 
-      className="but_comp"
-      >
+            onClick={handleComparisonButtonClick} 
+            className="button"
+        >
       Сравнение Авто
       </button>
       </div>

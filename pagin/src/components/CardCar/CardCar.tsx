@@ -18,7 +18,7 @@ interface CardCarProps {
    fuel: string,
 }
 
-const CardCar: FC<CardCarProps> = ({ num,img, wanted, brand, model, modelyear, region, datereg, color, fuel}) => (
+const CardCar: FC<CardCarProps> = ({ num, img, wanted, brand, model, modelyear, region, datereg, color, fuel}) => (
   <CardCarWrapper>
     
   <Card border="success" className="mb-4 shadow-sm"  id = "card" >

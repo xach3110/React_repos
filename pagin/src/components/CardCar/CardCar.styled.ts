@@ -4,6 +4,7 @@ import styled from 'styled-components';
 export const CardCarWrapper = styled.div`
     margin-left:25px;
     display:table-row;
+    width:300;
     
 `;
 

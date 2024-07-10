@@ -3,10 +3,11 @@
     border-radius: 10px;
     overflow: hidden;
     width: 300px;
-    margin-left: 27px;
+    margin-left: -200px;
     margin-top: -30px;
     opacity: 0;
     animation: fadeIn 1s ease-in-out forwards;
+    
   }
   
 

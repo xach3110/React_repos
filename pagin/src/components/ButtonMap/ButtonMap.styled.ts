@@ -14,9 +14,36 @@ export const Button = styled.button`
   position: fixed;
   bottom: 20px;
   left: 20px;
-  z-index: 1000; 
+  z-index: 1000;
 
   &:hover {
     background-color: #45a049;
+  }
+
+  @media (max-width: 768px) {
+    padding: 10px 20px;
+    font-size: 14px;
+    bottom: 10px;
+    left: 10px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 8px 16px;
+    font-size: 12px;
+    bottom: 5px;
+    left: 5px;
+  }
+`;
+
+export const ComparisonButton = styled(Button)`
+  left: auto;
+  right: 20px;
+
+  @media (max-width: 768px) {
+    right: 10px;
+  }
+
+  @media (max-width: 480px) {
+    right: 5px;
   }
 `;

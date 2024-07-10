@@ -10,52 +10,94 @@ export const Modal = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачный фон */
+  background-color: rgba(0, 0, 0, 0.8);
   z-index: 1000;
+
+  @media (max-width: 767px) {
+    padding: 10px;
+  }
 `;
 
 export const ModalContent = styled.div`
-  display: flex; /* Используем Flexbox для расположения карточек по горизонтали */
-  justify-content: center; /* Центрируем карточки по горизонтали */
-  align-items: flex-start; /* Выравниваем карточки по верхнему краю */
-  gap: 20px; /* Отступ между карточками */
-  padding: 20px; /* Внутренний отступ контейнера */
-  margin-top: 300px; /* Отступ сверху для контейнера */
-  width: 100%; /* Ширина контейнера на всю ширину экрана */
-  box-sizing: border-box; /* Включаем padding и border в ширину контейнера */
+  display: flex;
+  justify-content: left;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 20px;
+  margin-top: 300px;
+  margin-left: -200px;
+  width: 100%;
+  box-sizing: border-box;
+
+  @media (max-width: 1200px) {
+    margin-left: 0;
+    justify-content: center;
+  }
+
+  @media (max-width: 767px) {
+    margin-top: 40px;
+    margin-left: 0;
+    padding: 10px;
+    width: 100%;
+    max-height: 80vh;
+    overflow-y: auto;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
 `;
 
 export const CloseButton = styled.button`
   position: absolute;
   top: 20px;
   right: 20px;
-  background: #ff0000; /* Красный фон кнопки закрытия */
-  color: #fff; /* Белый текст на кнопке */
+  background: #ff0000;
+  color: #fff;
   border: none;
   border-radius: 4px;
   padding: 10px 20px;
   cursor: pointer;
   font-size: 16px;
-  z-index: 1010; /* Убедитесь, что кнопка поверх SVG */
-  
+  z-index: 1010;
+
   &:hover {
-    background: #cc0000; /* Темнее красный при наведении */
+    background: #cc0000;
   }
-  
+
   &:focus {
-    outline: none; /* Убираем обводку при фокусе */
+    outline: none;
+  }
+
+  @media (max-width: 767px) {
+    top: 5px;
+    right: 5px;
+    padding: 5px 10px;
+    font-size: 12px;
   }
 `;
 
 export const ModalContentS = styled.div`
-  background: white;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  position: fixed; /* Используем fixed для фиксированного позиционирования */
-  top: 20px; /* Располагаем в верхней части экрана с отступом в 20px */
-  left: 50%; /* Центрируем по горизонтали */
-  transform: translateX(-50%); /* Корректируем позиционирование по горизонтали */
-  width: 1000px;
-  z-index: 1000; /* Обеспечиваем, что элемент будет поверх остальных */
+  background-color: rgba(66, 66, 66, 0.99);
+  border-radius: 20px;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 800px;
+  z-index: 1000;
+  padding-top: 50px;
+  margin-left: 300px;
+
+  @media (max-width: 1200px) {
+    margin-left: 0;
+    width: 90%;
+  }
+
+  @media (max-width: 767px) {
+    width: 95%;
+    margin-left: 0;
+    padding: 15px;
+    transform: none;
+    left: 0;
+    font-size: 14px;
+  }
 `;
