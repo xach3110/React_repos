@@ -76,15 +76,15 @@ const App: FC = () => {
       
       <div className={`button-container ${buttonVisible ? 'visible' : ''}`}>
         <ButtonComponent onClick={handleButtonClick} />
-      </div>
-      <SvgMap isOpen={modalIsOpen} onClose={closeModal} regions={regions} />
-      <button 
+        <button 
       onClick={handleComparisonButtonClick} 
       className="but_comp"
       >
       Сравнение Авто
       </button>
+      </div>
       <SvgMap isOpen={modalIsOpen} onClose={closeModal} regions={regions} />
+
       {comparisonIsOpen && <Comparison onClose={closeComparisonModal} />} {/* Отображаем Comparison, если открыт */}
     </div>
   );
